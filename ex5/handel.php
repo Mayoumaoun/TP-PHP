@@ -8,7 +8,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail=$_POST['email'];
         $password=$_POST['password'];
         if($user->isUser($mail,$password) || $user->isAdmin($mail,$password)){
-            // start his session
             $ses=new IsAuth();
             $ses->creerSession($user->getId($mail,$password),$user->getRole($mail,$password));
             header("Location: home.php");

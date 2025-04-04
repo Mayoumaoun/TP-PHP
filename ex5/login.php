@@ -5,7 +5,7 @@ include("header.php");
     <div class="conteneur">
     <div class="container">
       <br />
-      <form class="row g-3" action="handel.php" method="POST">
+      <form class="row g-3" action="handel.php" method="post">
         <input type="hidden" name="form_type" value="login">
         <div class="col-md-12">
           <label for="inputEmail4" class="form-label">Email</label>
@@ -13,7 +13,7 @@ include("header.php");
         </div>
         <div class="col-md-12">
           <label for="inputPassword4" class="form-label">Password</label>
-          <input type="password" class="form-control" id="password" name="passsword" />
+          <input type="password" class="form-control" id="password" name="password" />
         </div>
         <div class="col-md-5">
         </div>
