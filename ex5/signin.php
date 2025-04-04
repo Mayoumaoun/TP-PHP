@@ -22,7 +22,7 @@ include("header.php");
        
         <div class="col-md-12">
             <label for="inputUserType" class="form-label">Sign up  as:</label>
-            <select id="inputUserType" class="form-select" name="inputUserType">
+            <select id="inputUserType" class="form-select" name="role">
                 <option name="role" value="admin">Admin</option>
                 <option name="role" value="user" selected>User</option>
             </select>
