@@ -1,4 +1,3 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 <?php
 include("classes/student.php");
 $std=new Student();
@@ -6,28 +5,22 @@ $listeStudents=$std->findAll();
 include("header.php");
 $role=$_SESSION["user"]["role"];
 ?>
-<br>
-<div class=" alert alert-light" role="alert"> List of students</div>
-    <div class="container">
-      
-
-        
+    <div>
+        <p>Liste des étudiants</p>
         <?php
         if($role== "admin"){
-                        echo "<div class='filter'>
+                        echo "<div class='c1'>
+                        <div class='filter'>
                             <input type='text' name='textFilter' id='textFilter'>
                             <button>Filtrer</button>
-                            <a href='utils/add.php'><i class='bi bi-person-add'></i></a>
-                        </div>";
+                        </div>
+                        <button><a href='utils/add.php'>Add</a></button>
+                    </div>";
                     }
         ?>
-        <br>
-        <div class="export">
-            <button onclick="window.location.href='export_csv.php'">Export CSV</button>
-            <button onclick="window.location.href='export_excel.php'">Export Excel</button>
-            <button onclick="window.location.href='export_pdf.php'">Export PDF</button>
-        </div>
-        <br>
+        
+        <div class="export"></div>
+        
         <table class="table">
             <thead>
                 <tr><td>id</td><td>image</td><td>name</td><td>birthday</td><td>section</td><td>Actions</td></tr>
@@ -39,11 +32,9 @@ $role=$_SESSION["user"]["role"];
                     foreach($stud as $key => $val){
                         echo $key=="image"?"<td><img src='".$val."' alt='profile' height=50 width=50></td>":"<td>".$val."</td>";
                     }
-                    
-                    echo "<td><a href='utils/read.php?id=".$stud->id."&type=student'><i class='bi bi-info-circle-fill'></i></a> ";
+                    echo "<td><a href='utils/read.php?id=".$stud->id."&type=student'>Read</a> ";
                     if($role== "admin"){
-                        echo "<a href='utils/delete.php?id=".$stud->id."&type=student'><i class='bi bi-eraser-fill'></i></a> 
-                        <a href='utils/edit?id=".$stud->id."&type=student'><i class='bi bi-pencil-square'></i></a>";
+                        echo "<a href='utils/delete.php?id=".$stud->id."&type=student'>Del</a> <a href='utils/edit?id=".$stud->id."&type=student'>Edit</a>";
                     }
                     echo "</td></tr>";
                 }
